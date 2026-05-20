@@ -2,7 +2,7 @@
 
 Proyecto desarrollado para la asignatura de **Despliegue de Aplicaciones Web (IAW)** de 2º de ASIR 
 Adrian Garcia Carbonell 
-Jesus Maria Ortega Abril
+Jesus Maria Ortega Abril 
 
 ## Funcionalidades del Sistema
 * **Autenticación:** Control de acceso mediante sesiones seguras con PHP.
