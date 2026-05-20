@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS helpdesk_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE helpdesk_db;
+
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS incidencias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descripcion TEXT NOT NULL,
+    prioridad ENUM('Baja', 'Media', 'Alta') NOT NULL DEFAULT 'Media',
+    estado ENUM('Abierta', 'Cerrada') NOT NULL DEFAULT 'Abierta',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS auditoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    accion VARCHAR(255) NOT NULL,
+    tabla VARCHAR(50) NOT NULL,
+    registro_id INT NOT NULL,
+    usuario VARCHAR(50) NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
